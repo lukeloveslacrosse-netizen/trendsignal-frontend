@@ -1,48 +1,57 @@
 import Link from "next/link";
-import { Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 
+const inter = Inter({ subsets: ["latin"] });
 const space = Space_Grotesk({ subsets: ["latin"] });
 
 export default function Login() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black flex items-center justify-center px-6 text-white">
-      <div className="w-full max-w-md rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur">
-        <h1 className={`${space.className} text-3xl font-bold text-center`}>
-          Welcome back
-        </h1>
+    <main className={`${inter.className} min-h-screen bg-slate-950 flex items-center justify-center px-6`}>
+      <div className="w-full max-w-md rounded-2xl bg-slate-900 border border-white/10 p-8 shadow-xl">
+        {/* LOGO */}
+        <div className="mb-8 text-center">
+          <div className={`${space.className} text-2xl font-bold`}>
+            <span className="text-white">Trend</span>
+            <span className="text-indigo-400">Signal</span>
+          </div>
+        </div>
 
-        <p className="mt-2 text-center text-gray-300">
-          Log in to TrendSignal
+        <h1 className="text-xl font-semibold text-white">
+          Sign in to your account
+        </h1>
+        <p className="mt-1 text-sm text-gray-400">
+          Welcome back — let’s get you inside.
         </p>
 
-        <form className="mt-8 space-y-4">
+        <form className="mt-6 space-y-4">
           <input
             type="email"
-            placeholder="Email"
-            className="w-full rounded-lg bg-black/40 border border-white/10 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            placeholder="Email address"
+            className="w-full rounded-lg bg-slate-800 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
 
           <input
             type="password"
             placeholder="Password"
-            className="w-full rounded-lg bg-black/40 border border-white/10 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full rounded-lg bg-slate-800 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
 
           <button
             type="submit"
-            className="w-full rounded-lg bg-indigo-500 py-3 font-semibold hover:bg-indigo-600 transition"
+            className="w-full rounded-lg bg-indigo-500 py-3 text-sm font-semibold text-white hover:bg-indigo-600 transition"
           >
-            Log In
+            Sign In
           </button>
         </form>
 
         <p className="mt-6 text-center text-sm text-gray-400">
           Don’t have an account?{" "}
           <Link href="/signup" className="text-indigo-400 hover:underline">
-            Sign up
+            Create one
           </Link>
         </p>
       </div>
     </main>
   );
 }
+
